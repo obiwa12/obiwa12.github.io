@@ -632,35 +632,3 @@ footer p {
         transition-duration: .01ms !important;
     }
 }
-
-/* RESTORE SEND MESSAGE BUTTON DESIGN */
-
-.contact-form button.main-btn {
-    display: inline-block;
-    background: #f9004d;
-    color: #ffffff;
-    border: 2px solid #f9004d;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: flex-start;
-}
-
-.contact-form button.main-btn:hover {
-    background: transparent;
-    color: #f9004d;
-    transform: translateY(-3px);
-}
-
-.contact-form button.main-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.contact-form button.main-btn i {
-    margin-right: 8px;
-}
