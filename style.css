@@ -173,6 +173,7 @@ header {
     color: black;
 }
 
+/* SOCIAL */
 .social-links {
     margin-top: 35px;
 }
@@ -260,7 +261,7 @@ header {
     margin-bottom: 30px;
 }
 
-/* SECTION TITLES */
+/* SECTION HEADING */
 .section-heading {
     text-align: center;
     margin-bottom: 55px;
@@ -433,6 +434,7 @@ header {
     outline: none;
     color: white;
     font-size: 16px;
+    transition: .3s;
 }
 
 .contact-form input:focus,
@@ -445,11 +447,38 @@ header {
     resize: vertical;
 }
 
-.contact-form button {
+/* SEND MESSAGE BUTTON - ORIGINAL DESIGN */
+.contact-form button.main-btn {
+    display: inline-block;
     align-self: flex-start;
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+    padding: 14px 28px;
+    border-radius: 30px;
     font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease;
 }
 
+.contact-form button.main-btn:hover {
+    background: transparent;
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.contact-form button.main-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.contact-form button.main-btn i {
+    margin-right: 8px;
+}
+
+/* FORM STATUS */
 #formStatus {
     min-height: 25px;
     line-height: 1.5;
@@ -516,18 +545,6 @@ footer p {
     visibility: visible;
 }
 
-/* REVEAL */
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: .8s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* RESPONSIVE */
 @media (max-width: 950px) {
     .hero-image {
@@ -538,13 +555,10 @@ footer p {
     .service-container {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .nav-links {
-        gap: 14px;
-    }
 }
 
 @media (max-width: 700px) {
+
     .navbar {
         padding: 15px 6%;
     }
@@ -621,13 +635,15 @@ footer p {
         padding: 75px 6%;
     }
 
-    .contact-form button {
+    .contact-form button.main-btn {
         align-self: center;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
     }
