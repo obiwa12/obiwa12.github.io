@@ -19,13 +19,14 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAVBAR -->
     <header>
         <nav class="navbar">
+
             <h2 class="logo">Portfo<span>lio.</span></h2>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -38,6 +39,7 @@
             <button class="menu-icon" id="menuIcon" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
+
         </nav>
     </header>
 
@@ -45,6 +47,7 @@
     <section class="hero" id="home">
 
         <div class="hero-content">
+
             <h4>Hello, my name is</h4>
 
             <h1>John Cyrus <span>Obina</span></h1>
@@ -66,6 +69,7 @@
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
             </div>
+
         </div>
 
         <div class="hero-image">
@@ -82,6 +86,7 @@
         </div>
 
         <div class="about-content">
+
             <h2>About <span>Me</span></h2>
 
             <h4>Developer & Designer</h4>
@@ -97,6 +102,7 @@
             </p>
 
             <a href="#contact" class="main-btn">Let's Talk</a>
+
         </div>
 
     </section>
@@ -207,7 +213,7 @@
         <div class="project-container">
 
             <div class="project-card">
-                <img src="images/project1.jpg" alt="Project One">
+                <img src="images/project1.jpg" alt="Website Design">
                 <div class="project-info">
                     <h3>Website Design</h3>
                     <p>Modern website interface design.</p>
@@ -215,7 +221,7 @@
             </div>
 
             <div class="project-card">
-                <img src="images/project2.jpg" alt="Project Two">
+                <img src="images/project2.jpg" alt="Portfolio Website">
                 <div class="project-info">
                     <h3>Portfolio Website</h3>
                     <p>Responsive personal portfolio website.</p>
@@ -234,9 +240,11 @@
             <p>Have a project in mind? Let's talk!</p>
         </div>
 
-        <form id="contactForm"
-              action="https://formspree.io/f/xrppnkdj"
-              method="POST">
+        <form
+            id="contactForm"
+            action="https://formspree.io/f/xrppnkdj"
+            method="POST"
+        >
 
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -246,7 +254,8 @@
                     name="name"
                     placeholder="Enter your name"
                     required
-                    maxlength="100">
+                    maxlength="100"
+                >
             </div>
 
             <div class="form-group">
@@ -257,7 +266,8 @@
                     name="email"
                     placeholder="Enter your email"
                     required
-                    maxlength="150">
+                    maxlength="150"
+                >
             </div>
 
             <div class="form-group">
@@ -268,7 +278,8 @@
                     name="subject"
                     placeholder="Enter subject"
                     required
-                    maxlength="150">
+                    maxlength="150"
+                >
             </div>
 
             <div class="form-group">
@@ -278,7 +289,8 @@
                     name="message"
                     placeholder="Write your message here..."
                     required
-                    maxlength="5000"></textarea>
+                    maxlength="5000"
+                ></textarea>
             </div>
 
             <button type="submit" id="submitBtn" class="main-btn">
@@ -314,6 +326,7 @@
 
     </footer>
 
+    <!-- BACK TO TOP -->
     <button id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
