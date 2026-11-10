@@ -89,9 +89,15 @@ window.addEventListener("scroll", () => {
 });
 
 // CONTACT FORM
-const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function(event) {
+// CONTACT FORM - FORMSPREE
+
+const contactForm = document.getElementById("contactForm");
+const submitBtn = document.getElementById("submitBtn");
+const formStatus = document.getElementById("formStatus");
+
+contactForm.addEventListener("submit", async function(event) {
+
     event.preventDefault();
 
     const name = document.getElementById("name").value.trim();
@@ -99,29 +105,67 @@ contactForm.addEventListener("submit", function(event) {
     const subject = document.getElementById("subject").value.trim();
     const message = document.getElementById("message").value.trim();
 
+    // VALIDATION
     if (!name || !email || !subject || !message) {
-        alert("Please complete all fields.");
+        formStatus.textContent = "Please complete all fields.";
+        formStatus.className = "error";
         return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
+        formStatus.textContent = "Please enter a valid email address.";
+        formStatus.className = "error";
         return;
     }
 
-    const mailtoLink =
-        "mailto:your-email@example.com" +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(
-            "Name: " + name +
-            "\nEmail: " + email +
-            "\n\nMessage:\n" + message
-        );
+    // LOADING STATE
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formStatus.textContent = "";
 
-    alert("Thank you, " + name + "! Your email application will open.");
+    try {
 
-    window.location.href = mailtoLink;
-    contactForm.reset();
+        const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: new FormData(contactForm),
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+
+            formStatus.textContent =
+                "Thank you, " + name + "! Your message has been sent successfully.";
+
+            formStatus.className = "success";
+
+            contactForm.reset();
+
+        } else {
+
+            formStatus.textContent =
+                "Oops! Something went wrong. Please try again.";
+
+            formStatus.className = "error";
+
+        }
+
+    } catch (error) {
+
+        formStatus.textContent =
+            "Network error. Please check your internet connection.";
+
+        formStatus.className = "error";
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+
+    }
+
 });
+
