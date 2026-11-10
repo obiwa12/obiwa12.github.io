@@ -15,7 +15,7 @@ menuIcon.addEventListener("click", () => {
     }
 });
 
-// CLOSE MENU AFTER CLICK
+/* CLOSE MOBILE MENU */
 document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
         navLinks.classList.remove("active");
@@ -23,27 +23,6 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         const icon = menuIcon.querySelector("i");
         icon.classList.replace("fa-xmark", "fa-bars");
     });
-});
-
-/* SCROLL REVEAL */
-const revealElements = document.querySelectorAll(
-    ".about, .services, .skills, .projects, .contact"
-);
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.12
-});
-
-revealElements.forEach(element => {
-    element.classList.add("reveal");
-    observer.observe(element);
 });
 
 /* SKILLS ANIMATION */
@@ -101,6 +80,27 @@ window.addEventListener("scroll", () => {
     });
 });
 
+/* REVEAL ANIMATIONS */
+const revealElements = document.querySelectorAll(
+    ".about, .services, .projects, .contact"
+);
+
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+revealElements.forEach(element => {
+    element.classList.add("reveal");
+    revealObserver.observe(element);
+});
+
 /* FORMSPREE CONTACT FORM */
 const contactForm = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
@@ -110,12 +110,13 @@ contactForm.addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
-    // Prevent multiple submissions
     if (submitBtn.disabled) return;
 
     const formData = new FormData(contactForm);
 
     submitBtn.disabled = true;
+
+    // Keep original button design while loading
     submitBtn.innerHTML =
         '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
@@ -124,33 +125,34 @@ contactForm.addEventListener("submit", async function(event) {
 
     try {
 
-        const response = await fetch(contactForm.action, {
-            method: "POST",
-            body: formData,
-            headers: {
-                "Accept": "application/json"
+        const response = await fetch(
+            "https://formspree.io/f/xrppnkdj",
+            {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
             }
-        });
+        );
 
         const result = await response.json();
 
-        if (response.ok) {
+        if (!response.ok) {
 
-            formStatus.textContent =
-                "Message sent successfully! Thank you for contacting me.";
-
-            formStatus.className = "success";
-
-            contactForm.reset();
-
-        } else {
-
-            const errorMessage = result.errors
+            const message = result.errors
                 ? result.errors.map(error => error.message).join(", ")
                 : "Something went wrong. Please try again.";
 
-            throw new Error(errorMessage);
+            throw new Error(message);
         }
+
+        formStatus.textContent =
+            "Your message has been sent successfully! Thank you.";
+
+        formStatus.className = "success";
+
+        contactForm.reset();
 
     } catch (error) {
 
@@ -163,6 +165,7 @@ contactForm.addEventListener("submit", async function(event) {
 
         submitBtn.disabled = false;
 
+        // Restore original button label and icon
         submitBtn.innerHTML =
             '<i class="fas fa-paper-plane"></i> Send Message';
     }
