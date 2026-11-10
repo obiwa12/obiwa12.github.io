@@ -19,28 +19,29 @@
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVIGATION -->
     <header>
         <nav class="navbar">
             <h2 class="logo">Portfo<span>lio.</span></h2>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
             <a href="#contact" class="nav-btn">Hire Me</a>
 
-            <div class="menu-icon" id="menuIcon">
+            <button class="menu-icon" id="menuIcon" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
 
-    <!-- HOME SECTION -->
+    <!-- HOME -->
     <section class="hero" id="home">
 
         <div class="hero-content">
@@ -60,24 +61,24 @@
                 <a href="#contact" class="outline-btn">Contact Me</a>
             </div>
 
-            <div class="hero-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
             </div>
         </div>
 
         <div class="hero-image">
-            <img src="https://i.ibb.co/pjjzc94Q/1794302461659.jpg" alt="John Cyrus Obina">
+            <img src="images/profile.png" alt="John Cyrus Obina">
         </div>
 
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
     <section class="about section" id="about">
 
         <div class="about-image">
-            <img src="https://i.ibb.co/4nmGLSk8/Messenger-creation-72-B68-B56-F7-FE-40-A1-8-A12-704-AEA30-E53-C.jpg" alt="About me">
+            <img src="images/profile.png" alt="My Profile">
         </div>
 
         <div class="about-content">
@@ -90,10 +91,9 @@
                 I am a passionate front-end web developer
                 who loves creating beautiful and responsive websites.
 
-                I can build clean designs using HTML, CSS,
-                and JavaScript. My goal is to create websites
-                that are user-friendly, attractive and accessible
-                on different devices.
+                I build websites using HTML, CSS and JavaScript.
+                My goal is to create websites that are user-friendly,
+                attractive and accessible on different devices.
             </p>
 
             <a href="#contact" class="main-btn">Let's Talk</a>
@@ -101,7 +101,7 @@
 
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICES -->
     <section class="services section" id="services">
 
         <div class="section-heading">
@@ -113,48 +113,36 @@
 
             <div class="service-card">
                 <i class="fas fa-code"></i>
-
                 <h3>Web Development</h3>
-
                 <p>
                     Creating modern and responsive websites
                     using HTML, CSS and JavaScript.
                 </p>
-
-                <a href="#contact" class="read-btn">Read More</a>
             </div>
 
             <div class="service-card">
                 <i class="fas fa-palette"></i>
-
                 <h3>Web Design</h3>
-
                 <p>
                     Designing attractive and user-friendly
                     website interfaces for different devices.
                 </p>
-
-                <a href="#contact" class="read-btn">Read More</a>
             </div>
 
             <div class="service-card">
                 <i class="fas fa-mobile-alt"></i>
-
                 <h3>Responsive Design</h3>
-
                 <p>
                     Making websites look great on mobile phones,
                     tablets and desktop computers.
                 </p>
-
-                <a href="#contact" class="read-btn">Read More</a>
             </div>
 
         </div>
 
     </section>
 
-    <!-- SKILLS SECTION -->
+    <!-- SKILLS -->
     <section class="skills section" id="skills">
 
         <div class="section-heading">
@@ -208,31 +196,97 @@
 
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- PROJECTS -->
+    <section class="projects section" id="projects">
+
+        <div class="section-heading">
+            <h2>My <span>Projects</span></h2>
+            <p>Some of my sample works</p>
+        </div>
+
+        <div class="project-container">
+
+            <div class="project-card">
+                <img src="images/project1.jpg" alt="Project One">
+                <div class="project-info">
+                    <h3>Website Design</h3>
+                    <p>Modern website interface design.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/project2.jpg" alt="Project Two">
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>Responsive personal portfolio website.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
     <section class="contact section" id="contact">
 
         <div class="section-heading">
             <h2>Contact <span>Me</span></h2>
-            <p>Let's work together!</p>
+            <p>Have a project in mind? Let's talk!</p>
         </div>
 
-        <form class="contact-form" id="contactForm">
+        <form id="contactForm"
+              action="https://formspree.io/f/xrppnkdj"
+              method="POST">
 
-            <input type="text" id="name"
-                placeholder="Your Name" required>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                    maxlength="100">
+            </div>
 
-            <input type="email" id="email"
-                placeholder="Your Email" required>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                    maxlength="150">
+            </div>
 
-            <input type="text" id="subject"
-                placeholder="Subject" required>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Enter subject"
+                    required
+                    maxlength="150">
+            </div>
 
-            <textarea id="message"
-                placeholder="Your Message" required></textarea>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                    maxlength="5000"></textarea>
+            </div>
 
-            <button type="submit" class="main-btn">
+            <button type="submit" id="submitBtn" class="main-btn">
+                <i class="fas fa-paper-plane"></i>
                 Send Message
             </button>
+
+            <p id="formStatus" role="status" aria-live="polite"></p>
 
         </form>
 
