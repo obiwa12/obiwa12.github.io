@@ -208,35 +208,63 @@
 
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact section" id="contact">
+  
+<!-- CONTACT SECTION -->
+<section class="contact section" id="contact">
 
-        <div class="section-heading">
-            <h2>Contact <span>Me</span></h2>
-            <p>Let's work together!</p>
-        </div>
+    <div class="section-heading">
+        <h2>Contact <span>Me</span></h2>
+        <p>Let's work together!</p>
+    </div>
 
-        <form class="contact-form" id="contactForm">
+    <form
+        class="contact-form"
+        id="contactForm"
+        action="https://formspree.io/f/xrppnkdj"
+        method="POST"
+    >
 
-            <input type="text" id="name"
-                placeholder="Your Name" required>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+        >
 
-            <input type="email" id="email"
-                placeholder="Your Email" required>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            required
+        >
 
-            <input type="text" id="subject"
-                placeholder="Subject" required>
+        <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            required
+        >
 
-            <textarea id="message"
-                placeholder="Your Message" required></textarea>
+        <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            required
+        ></textarea>
 
-            <button type="submit" class="main-btn">
-                Send Message
-            </button>
+        <button type="submit" class="main-btn" id="submitBtn">
+            Send Message
+        </button>
 
-        </form>
+        <p id="formStatus" role="status" aria-live="polite"></p>
 
-    </section>
+    </form>
+
+</section>
+
 
     <!-- FOOTER -->
     <footer>
