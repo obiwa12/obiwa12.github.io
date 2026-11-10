@@ -595,3 +595,25 @@ footer p {
         animation-duration: .01ms !important;
     }
 }
+
+/* CONTACT FORM STATUS */
+
+#formStatus {
+    font-size: 15px;
+    margin-top: 5px;
+    line-height: 1.6;
+    color: var(--gray);
+}
+
+#formStatus.success {
+    color: #00d084;
+}
+
+#formStatus.error {
+    color: #ff4d4d;
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
